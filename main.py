@@ -6,7 +6,7 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 if not api_key:
-    raise ValueError("OPENAI_API_KEY is not set in the environment variables.")
+    raise ValueError("OPENAI_API_KEY not found from .env file.")
 
 def get_response(prompt):
     client = OpenAI(api_key=api_key)
@@ -17,5 +17,5 @@ def get_response(prompt):
     )
     return response.choices[0].message.content
 
-response = get_response("What are the different role is in openai api we can assign explain pontwise, just explain the role")
+response = get_response("What is the capital of France?")
 print(response)
